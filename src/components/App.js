@@ -19,10 +19,10 @@ function App() {
   const houseFilter = dataUsers
     .filter((character) => {
       return character.house === filterByHouse;
-    });
-  const nameFilter = dataUsers
+    })
     .filter((character) => {
-      return character.name === filterByName;
+      return character.name.toLowerCase().includes(filterByName.toLowerCase());
+      /*return filterByName === "" ? true : character.name === filterByName;*/
     });
 
   const handleFilterByName = (value) => { setFilterByName(value); }
@@ -32,10 +32,10 @@ function App() {
     <>
       <Filters filterByName={filterByName}
         handleFilterByName={handleFilterByName}
-        filterByHouse={filterByHouse}
+
         handleFilterByHouse={handleFilterByHouse} />
-      <CharacterList characterhouse={houseFilter}
-        charactername={nameFilter}
+      <CharacterList character={houseFilter}
+
         filterByHouse={filterByHouse}
         filterByName={filterByName}></CharacterList>
 

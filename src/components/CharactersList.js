@@ -1,6 +1,7 @@
 import CharacterCard from "./CharacterCard"
 function CharacterList(props) {
 
+
     const userCharacters = props.character.map((character) => {
         return (
             <CharacterCard character={character} />
