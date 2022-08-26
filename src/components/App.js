@@ -6,10 +6,10 @@ import Filters from './Filters.js';
 function App() {
   const [dataUsers, setDataUsers] = useState([]);
   const [filterByHouse, setFilterByHouse] = useState("Gryffindor");
+  const [filterByName, setFilterByName] = useState("");
 
   useEffect(() => {
     getDataApi().then((dataFromApi) => {
-      console.log(dataFromApi);
       setDataUsers(dataFromApi);
 
     })
@@ -20,12 +20,24 @@ function App() {
     .filter((character) => {
       return character.house === filterByHouse;
     });
+  const nameFilter = dataUsers
+    .filter((character) => {
+      return character.name === filterByName;
+    });
+
+  const handleFilterByName = (value) => { setFilterByName(value); }
+
 
   return (
     <>
-      <Filters filterByHouse={filterByHouse}
+      <Filters filterByName={filterByName}
+        handleFilterByName={handleFilterByName}
+        filterByHouse={filterByHouse}
         handleFilterByHouse={handleFilterByHouse} />
-      <CharacterList character={houseFilter}></CharacterList>
+      <CharacterList characterhouse={houseFilter}
+        charactername={nameFilter}
+        filterByHouse={filterByHouse}
+        filterByName={filterByName}></CharacterList>
 
 
     </>

@@ -6,11 +6,11 @@ function FilterByHouse(props) {
         <>
             <label
                 className=""
-                for="gender">Género:</label>
+                htmlFor="house">Selecciona la casa:</label>
             <select
-                class="form__input-text"
-                name="gender"
-                id="gender"
+                class=""
+                name="house"
+                id="house"
                 value={props.FilterByHouse}
                 onChange={handleChange}>
 
@@ -19,7 +19,7 @@ function FilterByHouse(props) {
                 <option value="Slytherin">Slytherin</option>
                 <option value="Hufflepuff">Hufflepuff</option>
                 <option value="Ravenclaw">Ravenclaw</option>
-                <option value="">Vacio</option>
+                <option value="">Otros</option>
 
             </select>
         </>
