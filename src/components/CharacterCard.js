@@ -1,7 +1,7 @@
 import photoDefault from ".././images/photoDefault.png";
 function CharacterCard(props) {
-    if (props.character.photo === "") {
-        props.character.photo = photoDefault;
+    if (props.character.image === "") {
+        props.character.image = photoDefault;
     }
 
     return (
