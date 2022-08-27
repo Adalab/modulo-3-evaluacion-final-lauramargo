@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &__img {
+        width: 100px;
+        margin: 20px 0 20px 0;
+
+        @media all and (min-width: 768px) {
+            width: 600px;
+        }
+
+        @media all and (min-width: 1200px) {
+            width: 700px;
+        }
+    }
+}
