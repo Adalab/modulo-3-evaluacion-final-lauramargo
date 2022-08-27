@@ -10,6 +10,8 @@ const getDataApi = () => {
                     species: character.species,
                     image: character.image,
                     house: character.house,
+                    gender: character.gender,
+                    alternateNames: character.alternate_names,
                 };
             });
             return cleanData;

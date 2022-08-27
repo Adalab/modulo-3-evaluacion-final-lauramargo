@@ -1,0 +1,15 @@
+.container {
+    padding: 50px 0 50px 0;
+
+    @media all and (min-width: 768px) {
+        max-width: 900px;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+}

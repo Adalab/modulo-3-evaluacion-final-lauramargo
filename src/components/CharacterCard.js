@@ -6,6 +6,7 @@ function CharacterCard(props) {
         props.character.image = photoDefault;
     }
 
+
     return (
         <li className="">
             <Link to={`/character/${props.character.id}`}>
