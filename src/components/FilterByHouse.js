@@ -20,6 +20,7 @@ function FilterByHouse(props) {
                 <option value="Hufflepuff">Hufflepuff</option>
                 <option value="Ravenclaw">Ravenclaw</option>
                 <option value="">Otros</option>
+                <option value="Todas">Todas</option>
 
             </select>
         </>
