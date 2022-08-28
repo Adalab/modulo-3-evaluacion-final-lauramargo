@@ -7,21 +7,27 @@ import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import Header from './Header';
 import Footer from './Footer';
 import "../styles/components/App.scss";
+import lS from "../services/lS.js";
 
 
 function App() {
   const [dataUsers, setDataUsers] = useState([]);
-  const [filterByHouse, setFilterByHouse] = useState("Gryffindor");
-  const [filterByName, setFilterByName] = useState("");
-  const [filterByGender, setFilterByGender] = useState('all');
+  const [filterByHouse, setFilterByHouse] = useState(lS.get("filterHouseLs", "Gryffindor"));
+  const [filterByName, setFilterByName] = useState(lS.get("filterByNameLs", ""));
+  /*const [filterByGender, setFilterByGender] = useState('all');*/
 
 
   useEffect(() => {
-    getDataApi().then((dataFromApi) => {
-      setDataUsers(dataFromApi);
+    getDataApi().then((dataApi) => {
+      setDataUsers(dataApi);
 
     })
   }, []);
+  useEffect(() => {
+    lS.set("filterNameLs", filterByName);
+    lS.set("filterHouseLs", filterByHouse);
+
+  }, [filterByName, filterByHouse]);
 
 
 
@@ -33,11 +39,11 @@ function App() {
         return (character.house === filterByHouse);
       } return true;
     })
-    .filter((character) => {
+    /*.filter((character) => {
       if (filterByGender !== 'Todos') {
         return (character.gender === filterByGender);
       } return true;
-    })
+    })*/
 
     .filter((character) => {
       return character.name.toLowerCase().includes(filterByName.toLowerCase());
@@ -46,7 +52,7 @@ function App() {
 
   const handleFilterByName = (value) => { setFilterByName(value); }
 
-  const handleFilterByGender = (value) => { setFilterByGender(value); }
+  /*const handleFilterByGender = (value) => { setFilterByGender(value); }*/
 
   const resetBtn = () => {
     setFilterByName("");
@@ -87,8 +93,8 @@ function App() {
                     handleFilterByName={handleFilterByName}
                     filterByHouse={filterByHouse}
                     handleFilterByHouse={handleFilterByHouse}
-                    filterByGender={filterByGender}
-                    handleFilterByGender={handleFilterByGender}
+                    /*filterByGender={filterByGender}
+                    handleFilterByGender={handleFilterByGender}*/
                     resetBtn={resetBtn}
 
                   />

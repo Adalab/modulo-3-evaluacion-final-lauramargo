@@ -1,4 +1,4 @@
-function FilterByGender(props) {
+/*function FilterByGender(props) {
 
     const handleFilterByGender = (ev) => {
         ev.preventDefault();
@@ -18,4 +18,4 @@ function FilterByGender(props) {
     )
 };
 
-export default FilterByGender;
+export default FilterByGender;*/
