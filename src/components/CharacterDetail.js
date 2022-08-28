@@ -4,7 +4,7 @@ function CharacterDetail(props) {
     const getAlive = (character) => {
 
         if (character.alive !== "true") {
-            return ('Desapareció mágicamente de este mundo');
+            return 'Desapacerio mágicamente de este mundo';
         } return true;
     }
     return (
@@ -18,12 +18,14 @@ function CharacterDetail(props) {
                     src={props.character.image}
                     alt={`foto de ${props.character.name}`}
                     title={`foto de ${props.character.name}`}></img>
-                <h4 className="detail__article--title">{props.character.name}</h4>
-                <p className="detail__article--text">{props.character.species}</p>
-                <p className="detail__article--text">{props.character.gender}</p>
-                <p className="detail__article--text">{props.character.house}</p>
-                <p className="detail__article--text">{getAlive(props.character)}</p>
-                <p className="detail__article--text">{props.character.alternateNames}</p>
+                <div className="detail__article--container">
+                    <h4 className="detail__article--title">{props.character.name}</h4>
+                    <p className="detail__article--text">{props.character.species}</p>
+                    <p className="detail__article--text">{props.character.gender}</p>
+                    <p className="detail__article--text">{props.character.house}</p>
+                    <p className="detail__article--text">{getAlive(props.character)}</p>
+                    <p className="detail__article--text">{props.character.alternateNames}</p>
+                </div>
             </article>
         </section>
     )

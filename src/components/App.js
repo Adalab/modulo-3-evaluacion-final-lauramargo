@@ -39,6 +39,14 @@ function App() {
 
   const handleFilterByName = (value) => { setFilterByName(value); }
 
+  const resetBtn = () => {
+    setFilterByName("");
+    setFilterByHouse("gryffindor");
+
+  };
+
+
+
 
   const noResults = () => {
     if (setFilterByName !== "" && houseFilter.length === 0) {
@@ -55,14 +63,8 @@ function App() {
   const characterId = dataPath !== null ? dataPath.params.id : null;
   const characterFound = houseFilter.find(character => { return character.id === parseInt(characterId) });
 
-  const resetBtn = () => {
-    setFilterByName("");
-    setFilterByHouse("gryffindor");
-  };
-  const handleReset = (ev) => {
-    ev.preventDefault();
-    resetBtn();
-  };
+
+
 
 
 
@@ -72,10 +74,7 @@ function App() {
       <div className='page'>
         <Header />
         <main className='page__main'>
-          <button
-            type="button" onClick={handleReset}
-            reset={resetBtn}
-            className="page__reset">Reset</button>
+
           <Routes>
             <Route
               path="/"
@@ -84,11 +83,13 @@ function App() {
                   <Filters filterByName={filterByName}
                     handleFilterByName={handleFilterByName}
 
-                    handleFilterByHouse={handleFilterByHouse} />
+                    handleFilterByHouse={handleFilterByHouse}
+                    resetBtn={resetBtn} />
                   <CharacterList character={houseFilter}
 
                     filterByHouse={filterByHouse}
                     filterByName={filterByName}
+
                   />
                   {noResults()}
                 </>
