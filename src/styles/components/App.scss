@@ -21,5 +21,13 @@
         @media all and (min-width: 1200px) {
             min-height: calc(100vh - 621px);
         }
+
+
+    }
+
+    &__reset {
+        color: rgb(243, 247, 247);
+        background-color: rgb(206, 161, 28);
+        border-radius: 5px;
     }
 }
