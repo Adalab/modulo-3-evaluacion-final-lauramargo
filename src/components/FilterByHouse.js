@@ -8,7 +8,7 @@ function FilterByHouse(props) {
                 className=""
                 htmlFor="house">Selecciona la casa:</label>
             <select
-                class=""
+                className=""
                 name="house"
                 id="house"
                 value={props.FilterByHouse}

@@ -8,10 +8,12 @@ import Header from './Header';
 import Footer from './Footer';
 import "../styles/components/App.scss";
 
+
 function App() {
   const [dataUsers, setDataUsers] = useState([]);
   const [filterByHouse, setFilterByHouse] = useState("Gryffindor");
   const [filterByName, setFilterByName] = useState("");
+  const [filterByGender, setFilterByGender] = useState('all');
 
 
   useEffect(() => {
@@ -31,6 +33,11 @@ function App() {
         return (character.house === filterByHouse);
       } return true;
     })
+    .filter((character) => {
+      if (filterByGender !== 'Todos') {
+        return (character.gender === filterByGender);
+      } return true;
+    })
 
     .filter((character) => {
       return character.name.toLowerCase().includes(filterByName.toLowerCase());
@@ -38,6 +45,8 @@ function App() {
 
 
   const handleFilterByName = (value) => { setFilterByName(value); }
+
+  const handleFilterByGender = (value) => { setFilterByGender(value); }
 
   const resetBtn = () => {
     setFilterByName("");
@@ -63,12 +72,6 @@ function App() {
   const characterId = dataPath !== null ? dataPath.params.id : null;
   const characterFound = houseFilter.find(character => { return character.id === parseInt(characterId) });
 
-
-
-
-
-
-
   return (
     <>
       <div className='page'>
@@ -82,9 +85,13 @@ function App() {
                 <>
                   <Filters filterByName={filterByName}
                     handleFilterByName={handleFilterByName}
-
+                    filterByHouse={filterByHouse}
                     handleFilterByHouse={handleFilterByHouse}
-                    resetBtn={resetBtn} />
+                    filterByGender={filterByGender}
+                    handleFilterByGender={handleFilterByGender}
+                    resetBtn={resetBtn}
+
+                  />
                   <CharacterList character={houseFilter}
 
                     filterByHouse={filterByHouse}
