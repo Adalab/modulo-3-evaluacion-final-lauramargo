@@ -1,6 +1,6 @@
 import FilterByHouse from "./FilterByHouse";
 import FilterByName from "./FilterByName";
-/*import FilterByGender from './FilterByGender.js';*/
+import FilterByGender from './FilterByGender.js';
 
 function Filters(props) {
     const handleReset = (ev) => {
@@ -19,6 +19,10 @@ function Filters(props) {
             <FilterByHouse filterByHouse={props.filterByHouse}
                 handleFilterByHouse={props.handleFilterByHouse}>
             </FilterByHouse>
+            <FilterByGender filterByGender={props.filterByGender}
+                handleFilterByGender={props.handleFilterByGender}>
+            </FilterByGender>
+
 
         </>
     )

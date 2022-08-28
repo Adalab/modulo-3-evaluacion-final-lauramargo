@@ -14,7 +14,7 @@ function App() {
   const [dataUsers, setDataUsers] = useState([]);
   const [filterByHouse, setFilterByHouse] = useState(lS.get("filterHouseLs", "Gryffindor"));
   const [filterByName, setFilterByName] = useState(lS.get("filterByNameLs", ""));
-  /*const [filterByGender, setFilterByGender] = useState('all');*/
+  const [filterByGender, setFilterByGender] = useState("Todos");
 
 
   useEffect(() => {
@@ -39,11 +39,11 @@ function App() {
         return (character.house === filterByHouse);
       } return true;
     })
-    /*.filter((character) => {
+    .filter((character) => {
       if (filterByGender !== 'Todos') {
         return (character.gender === filterByGender);
       } return true;
-    })*/
+    })
 
     .filter((character) => {
       return character.name.toLowerCase().includes(filterByName.toLowerCase());
@@ -52,16 +52,14 @@ function App() {
 
   const handleFilterByName = (value) => { setFilterByName(value); }
 
-  /*const handleFilterByGender = (value) => { setFilterByGender(value); }*/
+  const handleFilterByGender = (value) => { setFilterByGender(value); }
 
   const resetBtn = () => {
     setFilterByName("");
     setFilterByHouse("gryffindor");
+    setFilterByGender("todos");
 
   };
-
-
-
 
   const noResults = () => {
     if (setFilterByName !== "" && houseFilter.length === 0) {
@@ -93,8 +91,8 @@ function App() {
                     handleFilterByName={handleFilterByName}
                     filterByHouse={filterByHouse}
                     handleFilterByHouse={handleFilterByHouse}
-                    /*filterByGender={filterByGender}
-                    handleFilterByGender={handleFilterByGender}*/
+                    filterByGender={filterByGender}
+                    handleFilterByGender={handleFilterByGender}
                     resetBtn={resetBtn}
 
                   />

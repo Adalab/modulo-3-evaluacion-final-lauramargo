@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import "../styles/components/CharacterDetail.scss";
 function CharacterDetail(props) {
     const getAlive = (character) => {
-
         if (character.alive !== "true") {
-            return 'Desapacerio mágicamente de este mundo';
-        } return true;
+            return ('Desapacerio mágicamente de este mundo');
+        } else {
+            return ('sigue con nosotros');
+        };
     }
     return (
         <section className="detail">
@@ -23,7 +24,7 @@ function CharacterDetail(props) {
                     <p className="detail__article--text">{props.character.species}</p>
                     <p className="detail__article--text">{props.character.gender}</p>
                     <p className="detail__article--text">{props.character.house}</p>
-                    <p className="detail__article--text">{getAlive(props.character)}</p>
+                    <p className="detail__article--text">{getAlive(props.character.alive)}</p>
                     <p className="detail__article--text">{props.character.alternateNames}</p>
                 </div>
             </article>
