@@ -8,6 +8,12 @@ function CharacterDetail(props) {
             return ('sigue con nosotros');
         };
     }
+    const iconAlive = () => {
+        if (props.character.alive) {
+            return <i className='fas fa-heartbeat'></i>;
+        }
+        return <i class="fa-solid fa-heart-crack"></i>;
+    };
 
     return (
         <section className="detail">
@@ -25,7 +31,7 @@ function CharacterDetail(props) {
                     <p className="detail__article--text">{props.character.species}</p>
                     <p className="detail__article--text">{props.character.gender}</p>
                     <p className="detail__article--text">{props.character.house}</p>
-                    <p className="detail__article--text">{getAlive(props.character.alive)}</p>
+                    <p className="detail__article--text">{getAlive(props.character.alive)}{iconAlive()}</p>
                     <p className="detail__article--text">{props.character.alternateNames}</p>
                 </div>
             </article>

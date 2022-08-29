@@ -1,8 +1,22 @@
 .footer {
+    &__text {
+        color: rgb(227, 176, 46);
+        text-align: center;
+    }
+
     &__name {
         color: rgb(227, 67, 46);
-        text-transform: uppercase;
+        text-transform: capitalize;
         box-sizing: border-box;
-        margin-left: 100px;
+        text-align: center;
     }
+}
+
+.fa-solid {
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 }

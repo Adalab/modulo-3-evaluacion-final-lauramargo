@@ -19,6 +19,7 @@ function Filters(props) {
                     type="button" onClick={handleReset}
                     resetBtn={props.resetBtn}
                     className="page__reset">Reset</button>
+
                 <FilterByName filterByName={props.filterByName}
                     handleFilterByName={props.handleFilterByName}></FilterByName>
                 <FilterByHouse filterByHouse={props.filterByHouse}
