@@ -12,6 +12,7 @@ import lS from "../services/lS.js";
 import NotFoundPage from './NotFoundPage.js';
 
 
+
 //useState
 function App() {
   const [dataUsers, setDataUsers] = useState([]);
@@ -26,6 +27,21 @@ function App() {
 
     })
   }, []);
+  useEffect(() => {
+    getDataApi(filterByHouse).then((charactersData) => {
+      setDataUsers(
+        charactersData.sort(function (a, b) {
+          if (a.name > b.name) {
+            return 1;
+          }
+          if (a.name < b.name) {
+            return -1;
+          }
+          return 0;
+        })
+      );
+    });
+  }, [filterByHouse]);
 
   useEffect(() => {
     lS.set("filterNameLs", filterByName);
@@ -50,6 +66,7 @@ function App() {
     .filter((character) => {
       return character.name.toLowerCase().includes(filterByName.toLowerCase());
     });
+
 
   //manejadoras
   const handleFilterByName = (value) => { setFilterByName(value); }
