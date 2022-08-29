@@ -4,41 +4,43 @@ import CharacterList from './CharactersList.js';
 import Filters from './Filters.js';
 import CharacterDetail from './CharacterDetail.js';
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
+
 import Header from './Header';
 import Footer from './Footer';
 import "../styles/components/App.scss";
 import lS from "../services/lS.js";
+import NotFoundPage from './NotFoundPage.js';
 
 
+//useState
 function App() {
   const [dataUsers, setDataUsers] = useState([]);
-  const [filterByHouse, setFilterByHouse] = useState(lS.get("filterHouseLs", "Gryffindor"));
   const [filterByName, setFilterByName] = useState(lS.get("filterByNameLs", ""));
+  const [filterByHouse, setFilterByHouse] = useState(lS.get("filterHouseLs", "Gryffindor"));
   const [filterByGender, setFilterByGender] = useState("Todos");
 
-
+  // useEffect
   useEffect(() => {
     getDataApi().then((dataApi) => {
       setDataUsers(dataApi);
 
     })
   }, []);
+
   useEffect(() => {
     lS.set("filterNameLs", filterByName);
     lS.set("filterHouseLs", filterByHouse);
 
   }, [filterByName, filterByHouse]);
 
-
-
-  const handleFilterByHouse = (value) => { setFilterByHouse(value); }
-
+  // filters
   const houseFilter = dataUsers
     .filter((character) => {
       if (filterByHouse !== 'Todas') {
         return (character.house === filterByHouse);
       } return true;
     })
+
     .filter((character) => {
       if (filterByGender !== 'Todos') {
         return (character.gender === filterByGender);
@@ -49,15 +51,18 @@ function App() {
       return character.name.toLowerCase().includes(filterByName.toLowerCase());
     });
 
-
+  //manejadoras
   const handleFilterByName = (value) => { setFilterByName(value); }
+
+  const handleFilterByHouse = (value) => { setFilterByHouse(value); }
 
   const handleFilterByGender = (value) => { setFilterByGender(value); }
 
+  //bonus
   const resetBtn = () => {
     setFilterByName("");
-    setFilterByHouse("gryffindor");
-    setFilterByGender("todos");
+    setFilterByHouse("Gryffindor");
+    setFilterByGender("Todos");
 
   };
 
@@ -66,15 +71,33 @@ function App() {
       return (
         <p >Ese nombre no es mágico, prueba con otro</p>
       );
+
+    } else {
+      return (<CharacterList character={houseFilter}
+
+        filterByHouse={filterByHouse}
+        filterByName={filterByName}
+
+      />);
     }
   };
 
   const { pathname } = useLocation();
   const dataPath = matchPath("/character/:id", pathname);
 
-
   const characterId = dataPath !== null ? dataPath.params.id : null;
   const characterFound = houseFilter.find(character => { return character.id === parseInt(characterId) });
+
+
+  const NotId = () => {
+    if (characterFound === undefined) {
+      return <NotFoundPage />
+
+    }
+    else { return <CharacterDetail character={characterFound} /> }
+  };
+
+
 
   return (
     <>
@@ -96,19 +119,14 @@ function App() {
                     resetBtn={resetBtn}
 
                   />
-                  <CharacterList character={houseFilter}
 
-                    filterByHouse={filterByHouse}
-                    filterByName={filterByName}
-
-                  />
                   {noResults()}
                 </>
               }
             />
             <Route
               path="/character/:id"
-              element={<CharacterDetail character={characterFound} />
+              element={NotId()
               }
             />
           </Routes>

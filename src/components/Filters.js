@@ -7,21 +7,27 @@ function Filters(props) {
         ev.preventDefault();
         props.resetBtn();
     };
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+    };
 
     return (
         <>
-            <button
-                type="button" onClick={handleReset}
-                resetBtn={props.resetBtn}
-                className="page__reset">Reset</button>
-            <FilterByName filterByName={props.filterByName}
-                handleFilterByName={props.handleFilterByName}></FilterByName>
-            <FilterByHouse filterByHouse={props.filterByHouse}
-                handleFilterByHouse={props.handleFilterByHouse}>
-            </FilterByHouse>
-            <FilterByGender filterByGender={props.filterByGender}
-                handleFilterByGender={props.handleFilterByGender}>
-            </FilterByGender>
+            <form className=""
+                onSubmit={handleSubmit}>
+                <button
+                    type="button" onClick={handleReset}
+                    resetBtn={props.resetBtn}
+                    className="page__reset">Reset</button>
+                <FilterByName filterByName={props.filterByName}
+                    handleFilterByName={props.handleFilterByName}></FilterByName>
+                <FilterByHouse filterByHouse={props.filterByHouse}
+                    handleFilterByHouse={props.handleFilterByHouse}>
+                </FilterByHouse>
+                <FilterByGender filterByGender={props.filterByGender}
+                    handleFilterByGender={props.handleFilterByGender}>
+                </FilterByGender>
+            </form>
 
 
         </>

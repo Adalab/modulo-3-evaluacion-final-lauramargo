@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import "../styles/components/CharacterDetail.scss";
 function CharacterDetail(props) {
     const getAlive = (character) => {
-        if (character.alive !== "true") {
-            return ('Desapacerio mágicamente de este mundo');
+        if (character !== true) {
+            return ('Desapareció mágicamente de este mundo');
         } else {
             return ('sigue con nosotros');
         };
     }
+
     return (
         <section className="detail">
             <Link to='/' className=''>
@@ -30,5 +31,6 @@ function CharacterDetail(props) {
             </article>
         </section>
     )
+
 };
 export default CharacterDetail;

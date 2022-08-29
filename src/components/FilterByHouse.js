@@ -1,6 +1,7 @@
 function FilterByHouse(props) {
     const handleChange = (ev) => {
         props.handleFilterByHouse(ev.target.value)
+
     }
     return (
         <>
@@ -11,7 +12,7 @@ function FilterByHouse(props) {
                 className=""
                 name="house"
                 id="house"
-                value={props.FilterByHouse}
+                value={props.filterByHouse}
                 onChange={handleChange}>
 
 
