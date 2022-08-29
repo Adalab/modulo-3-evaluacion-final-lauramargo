@@ -6,4 +6,5 @@ Todo debe de ser guardado en el localStorage y mostrarse  segun los principios d
 
 
 
-<img width="363" alt="Captura de pantalla 2022-08-27 a las 0 13 20" src="https://user-images.githubusercontent.com/106525823/187270432-d9062ca3-8b70-4b26-a2ab-2797e712000d.png">
+
+<img width="932" alt="Captura de pantalla 2022-08-29 a las 20 20 08" src="https://user-images.githubusercontent.com/106525823/187270931-c2eddace-44fd-47a3-9885-b2d0c283d449.png">
