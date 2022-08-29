@@ -13,7 +13,7 @@ function Filters(props) {
 
     return (
         <>
-            <form className=""
+            <form className="page__form"
                 onSubmit={handleSubmit}>
                 <button
                     type="button" onClick={handleReset}

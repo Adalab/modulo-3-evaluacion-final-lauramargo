@@ -1,8 +1,28 @@
+* {
+    text-decoration: none;
+}
+
 .page {
     background-color: black;
     min-height: 100vh;
     width: 100%;
     box-sizing: border-box;
+
+
+    &__form {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        color: antiquewhite;
+    }
+
+    &__reset {
+        color: rgb(243, 247, 247);
+        background-color: rgb(206, 161, 28);
+        border-radius: 5px;
+    }
 
     &__main {
         padding: 30px;
@@ -24,9 +44,5 @@
 
     }
 
-    &__reset {
-        color: rgb(243, 247, 247);
-        background-color: rgb(206, 161, 28);
-        border-radius: 5px;
-    }
+
 }
