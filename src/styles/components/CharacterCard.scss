@@ -3,6 +3,7 @@
     min-height: 350px;
     background-color: rgb(198, 103, 89);
     border-radius: 30px;
+
     margin: 10px;
     padding-bottom: 5px;
     display: flex;
@@ -10,15 +11,17 @@
     justify-content: space-between;
     text-decoration: none;
 
-
     &__article {
-        border-color: rgb(220, 178, 23);
+
+
 
         &--img {
             width: 200px;
             height: 300px;
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
+            border-bottom: 5px solid rgb(168, 51, 33);
+
 
         }
 

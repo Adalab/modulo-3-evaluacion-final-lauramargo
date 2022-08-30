@@ -1,5 +1,8 @@
 .container {
     padding: 10px 0 10px 0;
+    background-color: rgb(213, 173, 78);
+    padding: 0;
+    border-radius: 15px;
 
 
     @media all and (min-width: 768px) {
@@ -11,7 +14,6 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-
     }
 
 }
