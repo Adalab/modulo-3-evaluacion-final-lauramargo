@@ -1,7 +1,6 @@
 function FilterByHouse(props) {
     const handleChange = (ev) => {
         props.handleFilterByHouse(ev.target.value)
-
     }
     return (
         <>

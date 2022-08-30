@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import "../styles/components/CharacterDetail.scss";
+import g from "../images/g.png";
+import s from "../images/s.png";
+import r from "../images/r.png";
+import h from "../images/h.png";
+import hogwarts from "../images/hogwarts.png";
+
 function CharacterDetail(props) {
     const getAlive = (character) => {
         if (character !== true) {
@@ -14,6 +20,22 @@ function CharacterDetail(props) {
         }
         return <i class="fa-solid fa-heart-crack"></i>;
     };
+
+    const flag = (value) => {
+        if (value === 'Gryffindor') {
+            return g;
+        } else if (value === 'Slytherin') {
+            return s;
+        } else if (value === 'Hufflepuff') {
+            return h;
+        } else if (value === 'Ravenclaw') {
+            return r;
+        } else {
+            return hogwarts;
+        }
+    };
+
+
 
     return (
         <section className="detail">
@@ -31,6 +53,12 @@ function CharacterDetail(props) {
                     <p className="detail__article--text">{props.character.species}</p>
                     <p className="detail__article--text">{props.character.gender}</p>
                     <p className="detail__article--text">{props.character.house}</p>
+                    <img
+                        className="detailSection__house"
+                        src={flag(props.character.house)}
+                        alt={`Foto de ${props.character.house}`}
+                        title={`Foto de ${props.character.house}`}>
+                    </img>
                     <p className="detail__article--text">{getAlive(props.character.alive)}{iconAlive()}</p>
                     <p className="detail__article--text">{props.character.alternateNames}</p>
                 </div>
