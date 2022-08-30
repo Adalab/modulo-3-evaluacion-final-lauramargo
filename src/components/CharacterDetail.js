@@ -11,7 +11,7 @@ function CharacterDetail(props) {
         if (character !== true) {
             return ('Desapareció mágicamente de este mundo');
         } else {
-            return ('sigue con nosotros');
+            return ('sigue con nosotros y desbordando mágia');
         };
     }
     const iconAlive = () => {
@@ -34,6 +34,11 @@ function CharacterDetail(props) {
             return hogwarts;
         }
     };
+    const genderChar = (value) => {
+        if (value === "female") {
+            return "mujer";
+        } else { return "hombre"; }
+    };
 
 
 
@@ -48,19 +53,20 @@ function CharacterDetail(props) {
                     src={props.character.image}
                     alt={`foto de ${props.character.name}`}
                     title={`foto de ${props.character.name}`}></img>
-                <div className="detail__article--container">
-                    <h4 className="detail__article--title">{props.character.name}</h4>
-                    <p className="detail__article--text">{props.character.species}</p>
-                    <p className="detail__article--text">{props.character.gender}</p>
-                    <p className="detail__article--text">{props.character.house}</p>
+                <div className="detail__container">
+                    <h4 className="detail__container--title">{props.character.name}</h4>
+                    <p className="detail__container--text">{props.character.species}</p>
+                    <p className="detail__container--text">{genderChar(props.character.gender)}</p>
+
+                    <p className="detail__container--text">{getAlive(props.character.alive)}{iconAlive()}</p>
+                    <p className="detail__container--text">{props.character.alternateNames}</p>
+                    <p className="detail__container--text">{props.character.house}</p>
                     <img
-                        className="detailSection__house"
+                        className="detail__container--house"
                         src={flag(props.character.house)}
                         alt={`Foto de ${props.character.house}`}
                         title={`Foto de ${props.character.house}`}>
                     </img>
-                    <p className="detail__article--text">{getAlive(props.character.alive)}{iconAlive()}</p>
-                    <p className="detail__article--text">{props.character.alternateNames}</p>
                 </div>
             </article>
         </section>
