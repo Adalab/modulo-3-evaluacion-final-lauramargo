@@ -12,10 +12,9 @@ import lS from "../services/lS.js";
 import NotFoundPage from './NotFoundPage.js';
 
 
-
 //useState
 function App() {
-  const [dataUsers, setDataUsers] = useState([]);
+  const [dataUsers, setDataUsers] = useState(lS.get("filterDataLs", []));
   const [filterByName, setFilterByName] = useState(lS.get("filterByNameLs", ""));
   const [filterByHouse, setFilterByHouse] = useState(lS.get("filterHouseLs", "Gryffindor"));
   const [filterByGender, setFilterByGender] = useState("Todos");
@@ -46,8 +45,9 @@ function App() {
   useEffect(() => {
     lS.set("filterNameLs", filterByName);
     lS.set("filterHouseLs", filterByHouse);
+    lS.set("filterDataLs", dataUsers);
 
-  }, [filterByName, filterByHouse]);
+  }, [dataUsers, filterByName, filterByHouse]);
 
   // filters
   const houseFilter = dataUsers
