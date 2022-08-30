@@ -104,8 +104,13 @@
             transform: translateX(-25px);
 
             @media all and (min-width: 768px) {
-                height: 250px;
+                height: 220px;
                 margin-left: 85px;
+            }
+
+            @media all and (min-width: 1200px) {
+
+                margin-left: 95px;
             }
         }
     }
