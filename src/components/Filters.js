@@ -1,6 +1,7 @@
 import FilterByHouse from "./FilterByHouse";
 import FilterByName from "./FilterByName";
 import FilterByGender from './FilterByGender.js';
+import FilterBySpecies from "./FilterBySpecies";
 
 function Filters(props) {
     const handleReset = (ev) => {
@@ -28,6 +29,9 @@ function Filters(props) {
                 <FilterByGender filterByGender={props.filterByGender}
                     handleFilterByGender={props.handleFilterByGender}>
                 </FilterByGender>
+                <FilterBySpecies
+                    species={props.filterBySpecies}
+                    handleFilterBySpecies={props.handleFilterBySpecies}></FilterBySpecies>
             </form>
 
 
